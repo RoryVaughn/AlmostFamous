@@ -16,12 +16,15 @@ public class Cursor : MonoBehaviour {
     void Update()
     {   
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x +2.0f, Input.mousePosition.y, +10));
+        if (Input.GetMouseButtonDown(0) == true)
+        {
+            GetComponent<AudioSource>().Play();
+        }
 
 
 
 
 
-       
 
     }
 }
