@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Cursor : MonoBehaviour {
-    public GameObject Scope;
+    
    
-    public float distance = 1.0f;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -14,16 +14,22 @@ public class Cursor : MonoBehaviour {
 
     // Update is called once per frame
     void Update()
-    {
-        Vector3 mousePosistion = Input.mousePosition;
-        mousePosistion.z = distance;
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-       
-	
+    {   
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - 8, Input.mousePosition.y + 11, +10));
+        if (Input.GetMouseButtonDown(0) == true)
+        {
+            GetComponent<AudioSource>().Play();
+        }
 
-            
-        
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(transform.position, fwd, 10))
+        {
+            print("There is something in front of the object!");
+        }
 
 
-    }
+
+
+
+        }
 }
