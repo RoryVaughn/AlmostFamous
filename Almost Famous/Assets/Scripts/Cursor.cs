@@ -15,7 +15,7 @@ public class Cursor : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {   
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x +2.0f, Input.mousePosition.y, +10));
+        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - 8, Input.mousePosition.y + 11, +10));
         if (Input.GetMouseButtonDown(0) == true)
         {
             GetComponent<AudioSource>().Play();
